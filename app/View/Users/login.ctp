@@ -85,17 +85,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="panel-body">
-                              <form id="UserEsqueciMinhaSenhaForm" role="form" action="#" method="post" accept-charset="utf-8">
-                                  <fieldset>
-                                      <div class="form-group">
-                                          <input class="form-control" required="required" placeholder="Digite seu e-mail" name="data[User][email]" type="email" value="" autofocus autocomplete="off">
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button data-dismiss="modal" class="btn btn-default" type="button">Fechar</button>
-                                        <button type="submit" class="btn btn-info">Enviar</button>
-                                      </div>
-                                  </fieldset>
-                              </form>
+                              <?php include_once("add_user_empresa.ctp") ?>
                           </div>
                         </div>
                      </div>
