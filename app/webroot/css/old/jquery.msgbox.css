@@ -1,0 +1,39 @@
+.jquery-msgbox {
+	BACKGROUND: url(../img/background.png) repeat-x left bottom; PADDING-BOTTOM: 55px; FONT-STYLE: normal
+}
+.jquery-msgbox-wrapper {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 100px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px
+}
+.jquery-msgbox-buttons {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; RIGHT: 0px; PADDING-BOTTOM: 15px; BOTTOM: 0px; PADDING-TOP: 15px; POSITION: absolute; TEXT-ALIGN: right
+}
+.jquery-msgbox-buttons BUTTON {
+	PADDING-RIGHT: 14px; MIN-WIDTH: 85px; PADDING-LEFT: 14px; PADDING-BOTTOM: 2px; MARGIN-LEFT: 10px; CURSOR: pointer; PADDING-TOP: 0px; HEIGHT: 24px
+}
+.jquery-msgbox-buttons INPUT {
+	PADDING-RIGHT: 14px; MIN-WIDTH: 85px; PADDING-LEFT: 14px; PADDING-BOTTOM: 2px; MARGIN-LEFT: 10px; CURSOR: pointer; PADDING-TOP: 0px; HEIGHT: 24px
+}
+.jquery-msgbox-inputs {
+	MARGIN-TOP: 4px
+}
+.jquery-msgbox-inputs INPUT {
+	BORDER-RIGHT: #dddddd 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #dddddd 1px solid; DISPLAY: block; PADDING-LEFT: 2px; PADDING-BOTTOM: 3px; MARGIN: 3px 0px 6px; BORDER-LEFT: #dddddd 1px solid; WIDTH: 95%; PADDING-TOP: 3px; BORDER-BOTTOM: #dddddd 1px solid
+}
+.jquery-msgbox-label {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px
+}
+.jquery-msgbox-alert {
+	BACKGROUND: url(../img/alert.png) no-repeat 20px 20px
+}
+.jquery-msgbox-info {
+	BACKGROUND: url(../img/info.png) no-repeat 20px 20px
+}
+.jquery-msgbox-error {
+	BACKGROUND: url(../img/error.png) no-repeat 20px 20px
+}
+.jquery-msgbox-prompt {
+	BACKGROUND: url(../img/question.png) no-repeat 20px 20px
+}
+.jquery-msgbox-confirm {
+	BACKGROUND: url(../img/confirm.png) no-repeat 20px 20px
+}

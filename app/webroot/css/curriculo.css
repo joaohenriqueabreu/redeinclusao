@@ -1,0 +1,84 @@
+/* O símbolo # antes de uma palavra siginifica que as regras que estão entre chaves {} serão aplicadas ao elemento logo após o símbolo #, ou seja, as regras a seguir se aplicam ao elemento que contém como atributo id o valor paginaA4 (<div id="paginaA4">...</div>) */
+#paginaA4 {
+	/* A propiedade font-family muda o tipo de fonte utilizada neste elemento */
+	font-family: "Verdana";
+	/* A propiedade color altera a cor do texto neste elemento */
+	color:#414751;
+	/* Os atributos width x height (largura x altura) definem as dimensões do elemento */
+	width: 794px;
+	height: 1125px;
+	/* Os atributos com prefixo border-... definem o tipo de borda, sua cor e sua largura, respectivamente: */
+	/*border-style:solid;*/
+	border-color:#000;
+	border-width:1px;
+	/* Os atributos com prefixo margin-... definem o tamanho da margem. Neste caso estamos posicionando a margem no centro */
+	margin-left: auto;
+	margin-right: auto;
+}
+/* A próxima regra são definidas para a tag <div id="margem"></div> */
+#margem{
+	/* A propiedade com prefixo padding-... definem o preenchimento interno da div, neste caso, estamos usando o preenchimento de 2 centímetros em todos os lados deste elemento */
+	padding: 2cm;
+}
+/* A próxima regra são definidas para a tag <div id="nome"></div> */
+#nome{
+	font-size:20pt;
+	margin-bottom: 12pt;
+}
+/* A próxima regra são definidas para a tag <div id="Foto"></div> */
+#Foto{
+	/* A propiedade float faz exatamente o que ela siginifica, a div "flutua" sobre as outras para a direita */
+	float: right;
+	border-style:solid;
+	border-color:#CBCFD5;
+	border-width:1px;
+}
+/* Quando não há o símbolo # significa que em TODAS as tags com o nome inserido (no caso <p></p>) terão estas definições de formatação */
+p {
+	/* A propiedade font-size define o tamanho do texto neste elemento, pode ser colocados valores em px pt e em */
+	font-size:10pt;
+	/* A propiedade line-height faz exatamente o que ela siginifica, altera a altura da linha para 1,3% do tamanho da letra */
+	line-height: 1.3em;
+	/* Neste caso queremos que todas as margens tenham o tamanho de 0px neste elemento */
+	margin:0px;
+}
+/* Quando não há o símbolo # significa que em TODAS as tags com o nome inserido (no caso <h1></h1>) terão estas definições de formatação */
+h1{
+	font-size:10pt;
+
+	color:#575F6D;
+
+	margin-top:2em;
+
+	padding-bottom: 0.5em;
+	/* Esta propiedade deixa todo o texto em caixa alta */
+	text-transform: uppercase;
+
+	border-style:solid;
+	border-color:#CBCFD5;
+	border-width: 0 0 1px 0;
+}
+/* Quando não há o símbolo # significa que em TODAS as tags com o nome inserido (no caso <ul></ul>) terão estas definições de formatação */
+ul{
+	font-size:10pt;
+
+	margin-top:1.5em;
+	margin-bottom:3em;
+
+	padding-left: 15pt;
+}
+/* Quando não há o símbolo # significa que em TODAS as tags com o nome inserido (no caso <li></li>) terão estas definições de formatação */
+li{
+	margin-top:1em;
+}
+
+li ul {
+	margin-top:0.5em;
+	font-size:10pt;
+	margin-bottom:1em;
+	padding-left: 15pt;
+}
+
+li ul li{
+	margin-top:0.5em;
+}

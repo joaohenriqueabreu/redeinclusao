@@ -1,0 +1,5 @@
+<div class = "alerta_pdo">
+    <img src = "<?=$this->base?>/img/alert_pdo.png" />
+    <label>Não foi possível executar a requisição no banco de dados. Por favor, tente novamente ou entre em contato com suporte.</label>
+</div>
+<a href = "javascript:history.go(-1)" class = "botao">Voltar</a>

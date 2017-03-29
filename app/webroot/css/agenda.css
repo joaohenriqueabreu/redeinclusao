@@ -1,0 +1,49 @@
+.box_agenda {
+     margin: 0 5px 0 0;
+     float: left;
+     height: 16px;
+     width: 16px;
+}
+.box_agenda:hover {
+      border: 1px solid #000;
+}
+.ativo {
+  background: url('../img/ativo.png') no-repeat center center;
+}
+.color1 {
+   background-color:#9fc6e7;
+   border: 1px solid #9fc6e7;
+}
+.color2 {
+   background-color:#5484ed;
+}
+.color3 {
+   background-color:#a4bdfc;
+}
+.color4 {
+   background-color:#46d6db;
+}
+.color5 {
+   background-color:#7ae7bf;
+}
+.color6 {
+   background-color:#51b749;
+}
+.color7 {
+   background-color:#fbd75b;
+}
+.color8 {
+   background-color:#ffb878;
+}
+.color9 {
+   background-color:#ff887c;
+}
+.color10 {
+   background-color:#dc2127;
+}
+.color11 {
+   background-color:#dbadff;
+}
+.color12 {
+   background-color:#e1e1e1;
+}

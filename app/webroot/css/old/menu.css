@@ -1,0 +1,53 @@
+/* menu horizontal-vertical by micox */
+#menu_principal {
+    border-bottom: 5px solid #4086B7;
+    float: left;
+    width: 100%;
+}
+.menu-hv * { margin: 0; padding: 0;}
+.menu-hv a { display: block;}
+.menu-hv li { list-style: none; float: left; height: 1%; }
+.menu-hv li ul { position: absolute; visibility: hidden; border: 0px #CCC; z-index:60;}
+.menu-hv li ul li { float: none; white-space: nowrap; display:block; /* o inline Ã© pro IE */ border:none; width:200px;}
+.menu-hv li ul li ul { position: absolute; left: 100%; top: 0;}
+.menu-hv li:hover ul, .menu-hv li.over ul { visibility: visible; border: 0px solid #ccc;}
+.menu-hv li:hover ul ul, .menu-hv li.over ul ul { visibility: hidden; }
+.menu-hv ul ul li:hover ul, .menu-hv ul ul li.over ul { visibility: visible; border: 1px solid #CCC;}
+
+.menu-hv {
+    float: left;
+    height: 63px;
+    margin: -10px 0 0 30px;
+    width: 640px;
+}
+		   
+.menu-hv a{
+	margin-top:15px;
+	margin-left:5px;
+	border: 1px #ffffff;
+	text-decoration: none;
+	color:#1C94C4;
+	padding: 8px 5px;
+	font:verdana;
+	font-size:13px;
+	text-transform:uppercase;
+    border-radius: 6px 6px 6px 6px;
+    border: 1px solid  #CCCCCC;
+    background: #f9f9f9
+
+}
+
+.menu-hv a:hover, .menu-hv a.ativo {
+    color:#FFFFFF;
+    background: #4086b7
+}
+
+.menu-hv ul li ul {
+  background-color: #FFFFFF;
+  border-radius: 6px 6px 6px 6px;
+  padding: 10px;
+}
+
+.menu-hv ul li ul li{
+  width: 250px
+}
