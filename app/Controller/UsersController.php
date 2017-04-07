@@ -14,7 +14,10 @@ class UsersController extends AppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('login', 'logout', 'esqueci_minha_senha', 'envia_senha');
+//        $this->Auth->allow('login', 'logout', 'esqueci_minha_senha', 'envia_senha');
+        /// ------------- Baanko challenge updates -------------
+        /// Liberar o cadastro de usuário
+        $this->Auth->allow('login', 'add', 'logout', 'esqueci_minha_senha', 'envia_senha');
     }
 
     /**
@@ -51,17 +54,40 @@ class UsersController extends AppController
      */
     public function add()
     {
+        /// ------------- Baanko challenge updates -------------
+        /// Evitar erro interno ao utilizar essa action
         if ($this->request->is('post')) {
+
             $this->User->create();
+
+            /// ------------- Baanko challenge updates -------------
+            /// TODO: Somente para o MVP!!! Id de colaborador e grupo hard-coded
+            $this->request->data["User"]["colaborador_id"] = 18;
+            $this->request->data["User"]["group_id"] = 1;
+
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('Usuário salvo com sucesso!'), 'default', array('class' => 'alert alert-success'));
-                $this->redirect(array('action' => 'index'));
+//                $this->redirect(array('action' => 'index'));
+
+                /// ------------- Baanko challenge updates -------------
+                /// Fazer login do usuário
+                $this->Session->write('CID', 0);
+                $this->redirect(array('action' => 'login'));
+
             } else {
                 $this->Session->setFlash(__('Usuário não salvo. Por favor, tente novamente.'), 'default', array('class' => 'alert alert-danger'));
             }
+        } else {
+            $this->layout = 'user';
         }
-        $groups = $this->User->Group->find('list');
-        $colaboradores = $this->User->Colaborador->find('list', array('order' => array('nome')));
+        /// ------------- Baanko challenge updates -------------
+        /// Valores default para grupo e colaborador
+//        $groups = $this->User->Group->find('list');
+//        $colaboradores = $this->User->Colaborador->find('list', array('order' => array('nome')));
+
+        $groups = array('Adminstradores');
+        $colaboradores = array('Romário');
+
         $this->set(compact('groups', 'colaboradores'));
     }
 
@@ -92,6 +118,7 @@ class UsersController extends AppController
         } else {
             $this->request->data = $this->User->read(null, $id);
         }
+
         $groups = $this->User->Group->find('list');
         $colaboradores = $this->User->Colaborador->find('list', array('order' => array('nome')));
         $this->set(compact('groups', 'colaboradores'));
@@ -172,7 +199,12 @@ class UsersController extends AppController
                     $this->Session->write('CID', $clienteId);
                     $this->redirect(array('controller' => 'clientes', 'action' => 'view', $clienteId));
                 } else {
-                    $this->Session->setFlash('Usuário não autorizado. Por favor entre em contato com o Instituto Ester.', 'default', array('class' => 'alert alert-danger'));
+//                    $this->Session->setFlash('Usuário não autorizado. Por favor entre em contato com o Instituto Ester.', 'default', array('class' => 'alert alert-danger'));
+                    /// ------------- Baanko challenge updates -------------
+                    /// Caso não encontre a empresa redireciona para a tela de cadastro de empresa
+                    /// TODO: no cadastro da empresa é preciso vincular o id dela ao usuário logado
+                    $this->Session->write('CID', 0);
+                    $this->redirect(array('controller' => 'clientes', 'action' => 'add'));
                 }
 
 

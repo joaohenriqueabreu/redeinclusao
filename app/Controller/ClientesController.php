@@ -268,7 +268,11 @@ class ClientesController extends AppController
         ));
         $this->Cliente->id = $id;
         if (!$this->Cliente->exists()) {
-            throw new NotFoundException(__('Cadastro inválido.'));
+/// ------------- Baanko challenge updates -------------
+            //            throw new NotFoundException(__('Cadastro inválido.'));
+            /// Caso o cliente não exista redireciona para a página de cadastro
+            $this->Session->write('CID', 0);
+            $this->redirect(array('controller' => 'clientes', 'action' => 'add'));
         }
         $this->loadModel('ClientesContato');
         $contatos = $this->ClientesContato->find('all', [
@@ -287,6 +291,12 @@ class ClientesController extends AppController
     public function add()
     {
         if ($this->request->is('post')) {
+
+            /// ------------------- Baanko Challenge update --------------------
+            /// Se o cliente não for do tipo "E" ele não vai conseguir ver o IMGI
+            /// TODO: Estamos forçando aqui, mas é necessário entender a lógica dessa associação
+            $this->request->data["Cliente"]["tipo"] = "E";
+
             $this->Cliente->create();
             $this->request->data['Cliente']['razao_social'] = mb_strtoupper($this->request->data['Cliente']['razao_social']);
             if (isset($this->request->data['Cliente']['logradouro'])) {
@@ -352,6 +362,17 @@ class ClientesController extends AppController
                 $this->Session->setFlash(__('Cadastro salvo com sucesso.'), 'default', array(
                     'class' => 'alert alert-success'
                 ));
+
+                /// ---------------- Baanko Challenge updates --------------------
+                /// Atualizar o empresa_id no registro do usuário
+                $this->loadModel('User');
+                $this->User->id = $this->Auth->User('id');
+                $this->User->saveField('empresa_id', $this->Cliente->id);
+
+                /// Forçar logout
+                $this->Session->setFlash('Precisamos que faça login novamente para atualizar os dados de sua sessão!', 'default', array('class' => 'alert alert-success'));
+                $this->redirect($this->Auth->logout());
+
                 $this->redirect(array(
                     'action' => 'view',
                     $this->Cliente->id
@@ -362,6 +383,7 @@ class ClientesController extends AppController
                 ));
             }
         }
+
         $tiposEducacao = $this->TipoEducacao->find('list');
         $turnos = $this->TurnosEscola->find('list');
         $cargos = $this->Cliente->Cargo->find('list', [

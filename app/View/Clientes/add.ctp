@@ -10,11 +10,16 @@ echo $this->Html->script('global', array(
     <div class="col-lg-12">
         <h1 class="page-header">
             <?php
-            if ($this->params->query['tipo'] == 'S') {
-                echo 'Escola';
-            } else {
-                echo 'Empresa';
+
+            /// Baanko challenge updates
+            if(isset($this->params->query["tipo"])){
+                if ($this->params->query['tipo'] == 'S') {
+                    echo 'Escola';
+                } else {
+                    echo 'Empresa';
+                }
             }
+
             ?>
         </h1>
     </div>
@@ -29,8 +34,13 @@ echo $this->Html->script('global', array(
                 <ul class="links">
                     <?php
                     $parametros[] = (isset($this->params->query["ativo"])) ? 'ativo=' . $this->params->query["ativo"] : '';
-                    $parametros[] = 'status=' . $this->params->query["status"];
-                    $parametros[] = 'tipo=' . $this->params->query["tipo"];
+
+                    /// Baanko Challenge updates
+                    /// $parametros[] = 'status=' . $this->params->query["status"];
+                    /// $parametros[] = 'tipo=' . $this->params->query["tipo"];
+
+                    $parametros[] = (isset($this->params->query["status"])) ? 'status=' . $this->params->query["status"] : '';;
+                    $parametros[] = (isset($this->params->query["tipo"])) ? 'tipo=' . $this->params->query["tipo"] : '';
                     ?>
                     <li><a href="javascript:history.back(1);"
                            data-original-title="" title=""> <i
@@ -47,7 +57,9 @@ echo $this->Html->script('global', array(
                 <div class="row no-gutter">
                     <div class="col-lg-12 col-sm-12 col-sx-12">
                         <div class="form-group">
-                            <?php echo $this->Form->input('tipo', array('type' => 'hidden', 'value' => $this->params->query['tipo'])); ?>
+                            <!-- Baanko Challenge updates -->
+                            <!-- <?php echo $this->Form->input('tipo', array('type' => 'hidden', 'value' => $this->params->query['tipo'])); ?> -->
+                            <?php echo $this->Form->input('tipo', array('type' => 'hidden', 'value' => isset($this->params->query['tipo']) ?  $this->params->query['tipo'] : '')); ?>
                             <?php echo $this->Form->input('razao_social', array('class' => 'form-control', 'label' => 'Razão Social')); ?>
                         </div>
                     </div>
@@ -200,7 +212,10 @@ echo $this->Html->script('global', array(
                         </div>
                     </div>
                 </div>
-                <?php if ($this->request->query['tipo'] == 'S') : ?>
+
+                <!-- Baanko challenge updates -->
+                <!-- <?php ///if ($this->request->query['tipo'] == 'S') : ?> -->
+                <?php if (isset($this->request->query['tipo']) && $this->request->query['tipo'] == 'S') : ?>
                     <div class="row no-gutter">
                         <div class="col-lg-3 col-sm-3 col-sx-3">
                             <div class="form-group">
@@ -255,7 +270,13 @@ echo $this->Html->script('global', array(
                         <div class="form-group">
                             <label>Serviços</label><br />
                             <?php
-                            $servicos = $this->Util->servicos('', $this->request->query['tipo']);
+                            /// Baanko Challenge updates
+                            /// $servicos = $this->Util->servicos('', $this->request->query['tipo']);
+                            if(isset($this->request->query['tipo'])){
+                                $servicos = $this->Util->servicos('', $this->request->query['tipo']);
+                            } else {
+                                $servicos = array();
+                            }
                             foreach ($servicos as $key => $servico) :
                                 ?>
                                 <div class="checkbox-inline">

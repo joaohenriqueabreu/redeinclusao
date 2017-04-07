@@ -21,6 +21,7 @@
     	});
     });
 <?php echo $this->Html->scriptEnd(); ?>
+
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
         <div class="login-panel panel panel-default">
@@ -40,7 +41,9 @@
                         <!-- Change this to a button or input when using this as a form -->
                         <input  class="btn btn-lg btn-info btn-block" type="submit" value="Login"/>
                         <br />
-                        <p><a data-toggle="modal" data-target="#novaempresa" href="#">Cadastre agora</a></p>
+
+                        <!-- <p><a data-toggle="modal" data-target="#novaempresa" href="#">Cadastre agora</a></p> -->
+                        <p><a href="users/add">Cadastre agora</a></p>
                         <p><a data-toggle="modal" data-target="#esqueciSenha" href="#">Esqueci Minha Senha</a></p>
                     </fieldset>
                 </form>

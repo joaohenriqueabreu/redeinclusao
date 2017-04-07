@@ -1,6 +1,6 @@
+<form id="AddUserForm" role="form" action="<?=$this->base?>/users/usuarioEmpresa" method="post" accept-charset="utf-8">
 <div class="row">
     <div class="col-lg-12">
-        <?php echo $this->Form->create('User', array('role'=>'form')); ?>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Usuário</h4>
@@ -38,7 +38,7 @@
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="col-lg-12">
-				<?php echo $this->Form->create('Cliente', array('role' => 'form')); ?>
+				<!-- <?php //echo $this->Form->create('Cliente', array('role' => 'form')); ?> -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4>Empresa</h4>
@@ -203,10 +203,10 @@
 						</div>
 					</div>
 				</div>
-				<?php echo $this->Form->end(); ?>
+				<!-- <?php //echo $this->Form->end(); ?> -->
 			</div>
 		</div>
 	</div>
     <button class="btn btn-primary" type="submit">Salvar</button>
-    <?php echo $this->Form->end(); ?>
 </div>
+<?php echo $this->Form->end(); ?>
